@@ -1,0 +1,706 @@
+/*
+ * author: lixinjie
+ * date: 20170501
+ * 修改样式时，请修改对应less
+ * */
+@charset "utf-8";
+/* 让 IE 浏览器对不识别的 html5 元素将其当做块元素处理*/
+details,
+main,
+summary {
+  display: block;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+hr,
+blockquote,
+pre,
+textarea,
+fieldset,
+figure,
+ul,
+ol,
+dl,
+dd,
+menu {
+  margin: 0;
+}
+input,
+textarea,
+button,
+select,
+option,
+fieldset,
+legend,
+ul,
+ol,
+menu,
+th,
+td {
+  padding: 0;
+}
+hr,
+progress,
+input,
+textarea,
+button,
+select,
+fieldset {
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/*===引入normalize.css的样式===*/
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+.page-width {
+  width: 100%;
+  max-width: 1920px;
+  margin-right: auto;
+  margin-left: auto;
+}
+body {
+  width: 100%;
+  max-width: 1920px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 16px;
+  color: #333333;
+  background-color: #eee;
+  font-family: "Microsoft Yahei", Arial, sans-serif;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+progress {
+  vertical-align: baseline;
+}
+template,
+[hidden] {
+  display: none;
+}
+/* ===链接=== */
+a {
+  color: #333333;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+  outline-width: 0;
+  text-decoration: none;
+}
+/* ===文本=== */
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+}
+b,
+strong {
+  font-weight: inherit;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+dfn {
+  font-style: italic;
+}
+article h1,
+section h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+.sub-sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  bottom: -0.25em;
+}
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+/* ===嵌入式内容=== */
+img {
+  border-style: none;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+/* ===分组内容=== */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 16px;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+/* ===表单=== */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  margin: 0;
+  background-color: transparent;
+}
+optgroup {
+  font-weight: bold;
+}
+button,
+input {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+button:focus,
+html [type="button"]:focus,
+[type="reset"]:focus,
+[type="submit"]:focus {
+  outline: none;
+}
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+textarea {
+  overflow: auto;
+}
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+/* ===表格=== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,
+th {
+  text-align: left;
+}
+/* ===列表=== */
+ol,
+ul {
+  list-style-type: none;
+}
+/* ===关于浮动=== */
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:before {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+figure {
+  overflow: hidden;
+}
+figure a {
+  display: block;
+}
+figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+label:hover {
+  opacity: .8;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.transition {
+  transition: all .4s ease .1s;
+}
+.responsive-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.middle-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*validate错误提示*/
+label.error {
+  color: #f00;
+  display: block;
+  margin-bottom: 5px;
+}
+#errorTips {
+  display: block;
+  color: #f00;
+  visibility: hidden;
+}
+/*===注册页面===*/
+#registerHeader {
+  width: 100%;
+  height: 64px;
+  border-top: 4px solid #06c1ae;
+  line-height: 60px;
+  background-color: #fff;
+}
+#registerHeader .logo {
+  width: 860px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  color: #4a4956;
+}
+#registerHeader .logo span {
+  color: #06c1ae;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.register-main {
+  width: 860px;
+  margin: 70px auto;
+  background-color: #fff;
+}
+.register-main #registerNav ul:before {
+  content: "";
+  display: table;
+}
+.register-main #registerNav ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.register-main #registerNav ul li {
+  width: 33.33333333%;
+  float: left;
+}
+.register-main #registerNav ul li a {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #fff;
+  color: #757575;
+  font-size: 14px;
+}
+.register-main #registerNav ul li a:hover {
+  background-color: #06c1ae;
+  color: #fff;
+}
+.register-main #registerNav ul li.ui-state-active a {
+  background-color: #06c1ae;
+  color: #fff;
+  cursor: default;
+}
+.register-main #registerForm {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.register-main #registerForm > div {
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#tabs-1 .account-category {
+  margin-bottom: 24px;
+}
+#tabs-1 .account-category:before {
+  content: "";
+  display: table;
+}
+#tabs-1 .account-category:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#tabs-1 .account-category label {
+  display: block;
+  float: left;
+  font-size: 16px;
+  color: #3c3c3c;
+}
+#tabs-1 .account-category label:first-of-type {
+  margin-right: 25px;
+}
+#tabs-1 .account-category label input {
+  margin-right: 2px;
+}
+#tabs-1 .account-info > div {
+  margin-bottom: 15px;
+}
+#tabs-1 .account-info > div input {
+  display: block;
+  font-size: 12px;
+  color: #adadad;
+}
+#tabs-1 .account-info > div.normal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ebebeb;
+  line-height: 36px;
+}
+#tabs-1 .account-info > div.normal i {
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  left: 8px;
+  z-index: 3;
+}
+#tabs-1 .account-info > div.normal input {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 36px;
+  line-height: 36px;
+  padding-left: 34px;
+}
+#tabs-1 .account-info > div.img-code:before {
+  content: "";
+  display: table;
+}
+#tabs-1 .account-info > div.img-code:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#tabs-1 .account-info > div.img-code input {
+  float: left;
+  width: 144px;
+  height: 38px;
+  line-height: 36px;
+  border: 1px solid #ebebeb;
+  margin-right: 10px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+#tabs-1 .account-info > div.img-code .get-img-code {
+  display: block;
+  width: 88px;
+  height: 38px;
+  float: left;
+  font-size: 12px;
+}
+#tabs-1 .account-info > div.img-code .get-again {
+  display: inline-block;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 12px;
+  color: #008fe4;
+  line-height: 38px;
+}
+#tabs-1 .account-info > div.code:before {
+  content: "";
+  display: table;
+}
+#tabs-1 .account-info > div.code:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#tabs-1 .account-info > div.code input {
+  float: left;
+  width: 180px;
+  height: 38px;
+  line-height: 36px;
+  border: 1px solid #ebebeb;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+#tabs-1 .account-info > div.code button {
+  display: block;
+  height: 38px;
+  border: 1px solid #ebebeb;
+  line-height: 36px;
+  float: right;
+  font-size: 14px;
+  width: calc(100% - 180px);
+  text-align: center;
+  color: #adadad;
+}
+#tabs-1 .account-info > div.code button:hover {
+  color: #7a7a7a;
+}
+#tabs-1 .account-info > div.agreement label {
+  font-size: 16px;
+  color: #373737;
+}
+#tabs-1 .account-info > div.agreement label input {
+  display: inline-block;
+  margin-right: 3px;
+}
+#tabs-1 .account-info > div.agreement a {
+  color: #008fe4;
+  font-size: 16px;
+}
+#tabs-1 .account-info .next-step {
+  display: block;
+  margin-top: 24px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #06c1ae;
+  color: #fff;
+}
+#tabs-1 .account-info .next-step:hover {
+  background-color: #008e7b;
+}
+/*===第二步，关联账号===*/
+#tabs-2 .connect-id {
+  margin-bottom: 24px;
+}
+#tabs-2 .connect-id:before {
+  content: "";
+  display: table;
+}
+#tabs-2 .connect-id:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#tabs-2 .connect-id label {
+  display: block;
+  float: left;
+  font-size: 16px;
+  color: #3c3c3c;
+}
+#tabs-2 .connect-id label:first-of-type {
+  margin-right: 25px;
+}
+#tabs-2 .connect-id label input {
+  margin-right: 2px;
+}
+#tabs-2 .id-info {
+  margin-bottom: 40px;
+}
+#tabs-2 .id-info .wechat-id {
+  padding: 50px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+#tabs-2 .id-info .wechat-id img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 40px;
+}
+#tabs-2 .id-info .wechat-id strong {
+  font-size: 16px;
+  color: #a0a0a0;
+}
+#tabs-2 .id-info .alipay-id {
+  display: none;
+}
+#tabs-2 .id-info .alipay-id .normal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ebebeb;
+  line-height: 36px;
+}
+#tabs-2 .id-info .alipay-id .normal:first-of-type {
+  margin-bottom: 15px;
+}
+#tabs-2 .id-info .alipay-id .normal i {
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  left: 8px;
+  z-index: 3;
+}
+#tabs-2 .id-info .alipay-id .normal input {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 36px;
+  line-height: 36px;
+  padding-left: 34px;
+  font-size: 12px;
+}
+#tabs-2 .back-next {
+  width: 100%;
+}
+#tabs-2 .back-next:before {
+  content: "";
+  display: table;
+}
+#tabs-2 .back-next:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#tabs-2 .back-next a {
+  display: block;
+  float: left;
+  width: 47%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #06c1ae;
+  color: #fff;
+}
+#tabs-2 .back-next a:first-of-type {
+  margin-right: 6%;
+}
+#tabs-2 .back-next a:hover {
+  background-color: #008e7b;
+}
+/*===第三步，补全资质===*/
+#tabs-3 .addIndo > div {
+  margin-bottom: 12px;
+}
+#tabs-3 .addIndo > div > label {
+  display: block;
+  margin-bottom: 10px;
+  color: #000;
+  font-size: 14px;
+}
+#tabs-3 .addIndo > div > input {
+  display: block;
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ebebeb;
+  line-height: 36px;
+  padding-right: 8px;
+  padding-left: 8px;
+  font-size: 12px;
+}
+#tabs-3 .addIndo > div #city {
+  display: block;
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ebebeb;
+  line-height: 36px;
+  padding-right: 8px;
+  padding-left: 8px;
+  font-size: 12px;
+}
+#tabs-3 .addIndo > div #city select {
+  height: 36px;
+  line-height: 36px;
+}
