@@ -349,6 +349,111 @@ label.error {
   color: #f00;
   visibility: hidden;
 }
+/*===首页===*/
+#homeHeader {
+  width: 100%;
+  max-width: 1920px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 50px;
+  background-color: #495457;
+  color: #fff;
+}
+#homeHeader:before {
+  content: "";
+  display: table;
+}
+#homeHeader:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#homeHeader .logo {
+  width: 160px;
+  height: 50px;
+  position: relative;
+  float: left;
+  margin-left: 372px;
+}
+#homeHeader .logo img {
+  display: block;
+  width: 160px;
+  height: 27px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#homeHeader .login {
+  display: block;
+  float: right;
+  margin-right: 386px;
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  color: #fff;
+  transition: all .4s ease .1s;
+}
+#homeHeader .login:hover {
+  color: #cccccc;
+}
+#homeHeader .login img {
+  display: block;
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#homeHeader .login span {
+  font-size: 16px;
+  font-family: "黑体";
+  margin-left: 36px;
+}
+.home-bigpic {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  background: transparent url(../images/homebigpic.jpg) no-repeat center top / cover;
+}
+.home-bigpic img {
+  display: block;
+}
+.home-bigpic .downloadpic {
+  position: absolute;
+  top: 126px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 430px;
+  height: 176px;
+}
+#homeFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 1920px;
+  font-family: "黑体";
+  padding-top: 70px;
+  padding-bottom: 32px;
+  background-color: #fefefe;
+  font-size: 12px;
+  text-align: center;
+}
+#homeFooter small {
+  color: #999;
+}
+#homeFooter a {
+  color: #999;
+  padding-right: 7px;
+  padding-left: 8px;
+  border-left: 1px solid #999;
+}
+#homeFooter a:hover {
+  color: #666666;
+}
+#homeFooter a:nth-of-type(2) {
+  border-right: 1px solid #999;
+}
 /*===注册页面===*/
 #registerHeader {
   width: 100%;

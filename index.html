@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>拓贝</title>
+		<meta name="keywords" content="拓贝，VIP折扣" />
+		<meta name="description" content="拓贝，VIP折扣，消费越多折扣越多" />
+		<link rel="stylesheet" href="style/tuobei.css" />
+	</head>
+
+	<body>
+		<header id="homeHeader" role="banner">
+			<figure class="logo">
+				<img src="images/logo.png" alt="拓贝logo" />
+			</figure>
+			<a href="#" title="登录" class="login">
+				<img src="images/user.png" alt="登录" />
+				<span>登录</span>
+			</a>
+		</header>
+		<main id="homeMain" role="main">
+			<div id="homeBigpic" class="home-bigpic">
+				<img src="images/download.png" alt="下载提示" class="downloadpic" />
+			</div>
+		</main>
+		<footer id="homeFooter" role="contentinfo">
+			<small>&copy;2017 TUOBEI.,Ltd.ALL Rights Reserved.</small>
+			<a href="#" title="网站使用条款">网站使用条款</a>
+			<a href="#" title="隐私条款">隐私条款</a>
+			<small>粤ICP备12345678号-1</small>
+			<a href="#" title="快递查询">快递查询</a>
+		</footer>
+		<script src="script/jquery-3.2.0.min.js"></script>
+		<script src="script/bootstrap.min.js"></script>
+		<script src="script/tuobei.js"></script>
+		<script>
+			$(function(){
+				var windowHeight = $(window).innerHeight();
+				var headerHeight = $("#homeHeader").outerHeight();
+				var footerHeight = $("#homeFooter").outerHeight();
+				$("#homeBigpic").height(windowHeight - headerHeight - footerHeight);
+			});
+		</script>
+	</body>
+
+</html>

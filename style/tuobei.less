@@ -484,6 +484,102 @@ label.error {
     visibility: hidden;
 }
 
+/*===首页===*/
+#homeHeader {
+    @size: 50px;
+    .page-width;
+    height: @size;
+    background-color: #495457;
+    color: #fff;
+    .clearfix;
+    .logo {
+        width: 160px;
+        height: @size;
+        position: relative;
+        float: left;
+        margin-left: 372px;
+        img {
+            display: block;
+            width: 160px;
+            height: 27px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .login {
+        display: block;
+        float: right;
+        margin-right: 386px;
+        width: 160px;
+        height: @size;
+        line-height: @size;
+        position: relative;
+        color: #fff;
+        .transition;
+        &:hover {
+            color: #fff - #333;
+        }
+        img {
+            display: block;
+            width: 27px;
+            height: 27px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);            
+        }
+        span {
+            font-size: @fs;
+            font-family: "黑体";
+            margin-left: 36px;
+        }
+    }
+}
+.home-bigpic {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    background: transparent url(../images/homebigpic.jpg) no-repeat center top / cover;
+    img {
+        display: block;
+    }
+    .downloadpic {
+        position: absolute;
+        top: 126px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 430px;
+        height: 176px;        
+    }
+}
+#homeFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 1920px;
+    font-family: "黑体";
+    padding-top: 70px;
+    padding-bottom: 32px;
+    background-color: #fefefe;
+    font-size: @fs - 4;
+    text-align: center;
+    small {
+        color: #999;        
+    }
+    a {
+        color: #999;
+        padding-right: 7px;
+        padding-left: 8px;
+        border-left: 1px solid #999;
+        &:hover {
+            color: #999 - #333;
+        }
+        &:nth-of-type(2) {
+            border-right: 1px solid #999;
+        }
+    }
+}
+
 /*===注册页面===*/
 #registerHeader {
     @size: 60px;
