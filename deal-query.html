@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>交易查询 | 拓贝商户管理后台</title>
+		<meta name="keywords" content="拓贝，VIP折扣" />
+		<meta name="description" content="拓贝，VIP折扣，消费越多折扣越多" />
+		<link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="style/tuobei.css" />
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_8nlb5mvhci8uxr.css" />
+	</head>
+
+	<body>
+		<header id="header" role="banner">
+			<div class="logo"><span>拓贝</span>商户管理后台</div>
+			<div class="user-exit">
+				<div class="user">
+					<img src="images/head-portrait.jpg" alt="用户头像" />
+					<span>用户名</span>
+				</div>
+				<div class="exit" title="登出">
+					<i class="iconfont icon-exit"></i>
+					<span>退出</span>
+				</div>
+			</div>
+		</header>
+		<main id="main" role="main">
+			<nav id="accordion" class="menu" role="navigation">
+				<h3 title="账户管理" class="menu-heading unfold">
+					<i class="iconfont icon-user"></i>
+					<strong>账户管理</strong>
+				</h3>
+				<div>
+					<a href="#" title="修改密码">修改密码</a>
+					<a href="#" title="账户维护">账户维护</a>
+				</div>
+				<h3 title="商户报表" class="menu-heading fold">
+					<i class="iconfont icon-report"></i>
+					<strong>商户报表</strong>
+				</h3>
+				<div>
+					<a href="#" title="交易查询" class="active">交易查询</a>
+					<a href="#" title="交易分析图">交易分析图</a>
+				</ul>
+			</nav>
+			<aside class="sidebar-r">
+				<nav class="breadcrumbs">
+					<ol>
+						<li>
+							<a href="index" title="商户报表">商户报表</a>
+						</li>
+						<li>交易查询</li>
+					</ol>
+				</nav>
+				<div class="content">
+					<div class="query-select">
+						<label for="shopName">店面名称
+							<input type="text" id="shopName" name="shopName" placeholder="请输入店面名称" />
+						</label>
+						<label for="time">消费时间
+							<input type="text" id="time" name="time" placeholder="请选择消费时间段" />
+						</label>
+						<label for="price">金额区间
+							<input type="text" id="name" name="name" placeholder="请输入消费区间" />
+						</label>
+					</div>
+					<div class="handle">
+						<button type="button" class="query-btn" title="查询">查询</button>
+						<button type="button" class="export-btn" title="导出">导出</button>
+					</div>
+					<div class="table-responsive deal-table">
+						<table class="table table-hover table-bordered">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>订单号</th>
+									<th>商品名称</th>
+									<th>消费时间</th>
+									<th>消费店铺</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>2017071720170717</td>
+									<td>雪碧250ML雪碧250ML雪碧250ML雪碧250ML雪碧250ML雪碧250ML</td>
+									<td>2017年7月17日21:00:00</td>
+									<td>春熙路红旗超市分店</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>2017071720170717</td>
+									<td>雪碧250ML</td>
+									<td>2017年7月17日21:00:00</td>
+									<td>春熙路红旗超市分店春熙路红旗超市分店</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>2017071720170717</td>
+									<td>雪碧250ML</td>
+									<td>2017年7月17日21:00:00</td>
+									<td>春熙路红旗超市分店</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+		</main>
+		<footer id="footer" role="contentinfo">
+			
+		</footer>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="script/tuobei.js"></script>
+		<script>
+			$(function() {
+				var icons = {
+					header: "ui-icon-plus",
+					activeHeader: "ui-icon-minus"
+				};
+				$("#accordion").accordion({
+					icons: icons,					
+                	collapsible: true, // 面板全部可折叠
+                	active: 1, // 当 collapsible: true 时，该属性可用，默认展开第二个面板
+				});
+			});
+		</script>
+	</body>
+
+</html>

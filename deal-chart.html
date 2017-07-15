@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>交易分析图| 拓贝商户管理后台</title>
+		<meta name="keywords" content="拓贝，VIP折扣" />
+		<meta name="description" content="拓贝，VIP折扣，消费越多折扣越多" />
+		<link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="style/tuobei.css" />
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_8nlb5mvhci8uxr.css" />
+	</head>
+
+	<body>
+		<header id="header" role="banner">
+			<div class="logo"><span>拓贝</span>商户管理后台</div>
+			<div class="user-exit">
+				<div class="user">
+					<img src="images/head-portrait.jpg" alt="用户头像" />
+					<span>用户名</span>
+				</div>
+				<div class="exit" title="登出">
+					<i class="iconfont icon-exit"></i>
+					<span>退出</span>
+				</div>
+			</div>
+		</header>
+		<main id="main" role="main">
+			<nav id="accordion" class="menu" role="navigation">
+				<h3 title="账户管理" class="menu-heading unfold">
+					<i class="iconfont icon-user"></i>
+					<strong>账户管理</strong>
+				</h3>
+				<div>
+					<a href="#" title="修改密码">修改密码</a>
+					<a href="#" title="账户维护">账户维护</a>
+				</div>
+				<h3 title="商户报表" class="menu-heading fold">
+					<i class="iconfont icon-report"></i>
+					<strong>商户报表</strong>
+				</h3>
+				<div>
+					<a href="#" title="交易查询">交易查询</a>
+					<a href="#" title="交易分析图" class="active">交易分析图</a>
+				</ul>
+			</nav>
+			<aside class="sidebar-r">
+				<nav class="breadcrumbs">
+					<ol>
+						<li>
+							<a href="index" title="商户报表">商户报表</a>
+						</li>
+						<li>交易分析图</li>
+					</ol>
+				</nav>
+				<div class="content">
+					
+				    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+				    <div id="chart" style="width: 600px;height:400px;"></div>
+				</div>
+			</aside>
+		</main>
+		<footer id="footer" role="contentinfo">
+			
+		</footer>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://cdn.bootcss.com/echarts/3.6.2/echarts.min.js"></script>
+		<script src="script/tuobei.js"></script>
+		<script>
+			$(function() {
+				var icons = {
+					header: "ui-icon-plus",
+					activeHeader: "ui-icon-minus"
+				};
+				$("#accordion").accordion({
+					icons: icons,					
+                	collapsible: true, // 面板全部可折叠
+                	active: 1, // 当 collapsible: true 时，该属性可用，默认展开第二个面板
+				});
+			});
+			
+	        // 基于准备好的dom，初始化echarts实例
+	        var dealChart = echarts.init(document.getElementById('chart'));
+		
+		    // 指定图表的配置项和数据
+			option = {
+			    title: {
+			        text: '未来一周气温变化',
+			        subtext: '纯属虚构'
+			    },
+			    tooltip: {
+			        trigger: 'axis'
+			    },
+			    legend: {
+			        data:['最高气温','最低气温']
+			    },
+			    toolbox: {
+			        show: true,
+			        feature: {
+			            dataZoom: {
+			                yAxisIndex: 'none'
+			            },
+			            dataView: {readOnly: false},
+			            magicType: {type: ['line', 'bar']},
+			            restore: {},
+			            saveAsImage: {}
+			        }
+			    },
+			    xAxis:  {
+			        type: 'category',
+			        boundaryGap: false,
+			        data: ['周一','周二','周三','周四','周五','周六','周日']
+			    },
+			    yAxis: {
+			        type: 'value',
+			        axisLabel: {
+			            formatter: '{value} °C'
+			        }
+			    },
+			    series: [
+			        {
+			            name:'最高气温',
+			            type:'line',
+			            data:[11, 11, 15, 13, 12, 13, 10],
+			            markPoint: {
+			                data: [
+			                    {type: 'max', name: '最大值'},
+			                    {type: 'min', name: '最小值'}
+			                ]
+			            },
+			            markLine: {
+			                data: [
+			                    {type: 'average', name: '平均值'}
+			                ]
+			            }
+			        },
+			        {
+			            name:'最低气温',
+			            type:'line',
+			            data:[1, -2, 2, 5, 3, 2, 0],
+			            markPoint: {
+			                data: [
+			                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+			                ]
+			            },
+			            markLine: {
+			                data: [
+			                    {type: 'average', name: '平均值'},
+			                    [{
+			                        symbol: 'none',
+			                        x: '90%',
+			                        yAxis: 'max'
+			                    }, {
+			                        symbol: 'circle',
+			                        label: {
+			                            normal: {
+			                                position: 'start',
+			                                formatter: '最大值'
+			                            }
+			                        },
+			                        type: 'max',
+			                        name: '最高点'
+			                    }]
+			                ]
+			            }
+			        }
+			    ]
+			};
+			
+	        // 使用刚指定的配置项和数据显示图表。
+	        dealChart.setOption(option);
+			
+		</script>
+	</body>
+
+</html>
