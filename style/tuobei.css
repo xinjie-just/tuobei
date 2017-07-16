@@ -1020,7 +1020,8 @@ label.error {
 }
 .sidebar-r {
   float: left;
-  max-width: calc(100% - 210px);
+  width: calc(100% - 210px);
+  min-width: 400px;
 }
 /*面包屑导航*/
 .breadcrumbs {
@@ -1074,10 +1075,11 @@ label.error {
   margin-left: 14px;
   padding: 24px 90px 90px 32px;
 }
-.content .query-select {
+/*===交易查询===*/
+.query-select {
   margin-bottom: 24px;
 }
-.content .query-select label {
+.query-select label {
   display: block;
   height: 40px;
   line-height: 40px;
@@ -1085,7 +1087,7 @@ label.error {
   color: #8f8f8f;
   margin-bottom: 16px;
 }
-.content .query-select label input {
+.query-select label input {
   display: inline-block;
   vertical-align: middle;
   color: #8f8f8f;
@@ -1099,11 +1101,11 @@ label.error {
   padding-left: 10px;
   margin-left: 58px;
 }
-.content .handle {
+.handle {
   margin-left: 120px;
   margin-bottom: 22px;
 }
-.content .handle button {
+.handle button {
   display: inline-block;
   width: 108px;
   height: 32px;
@@ -1113,13 +1115,309 @@ label.error {
   color: #fff;
   transition: all .4s ease .1s;
 }
-.content .handle button:hover {
+.handle button:hover {
   background-color: #008f7d;
 }
-.content .handle button:first-of-type {
+.handle button:first-of-type {
   margin-right: 14px;
 }
 .deal-table {
   margin-left: 120px;
 }
-/*===交易查询===*/
+/*===交易分析图===*/
+.chart-select strong {
+  margin-right: 42px;
+  font-size: 14px;
+  color: #858585;
+}
+.chart-select .time {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 42px;
+  border: 1px solid #ebebeb;
+  border-radius: 2px;
+  font-size: 0;
+}
+.chart-select .time .week,
+.chart-select .time .month {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.chart-select .time .week label,
+.chart-select .time .month label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 34px;
+  line-height: 34px;
+  z-index: 3;
+  opacity: 0;
+  margin: auto;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+}
+.chart-select .time .week {
+  border-right: 1px solid #ebebeb;
+}
+.chart-select .time input {
+  display: inline-block;
+  vertical-align: middle;
+  /*让默认的单选样式的圆圈和“本周”“本月”的文本没有高差，看起来在同一水平线*/
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  /*清除浏览器默认的外边距*/
+}
+.chart-select .time span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 26px;
+  line-height: 26px;
+  z-index: 2;
+  margin: auto;
+  display: inline-block;
+  text-align: center;
+  color: #858585;
+  font-size: 14px;
+}
+.chart-select .time span.active {
+  color: #14c2b0;
+}
+.chart-select .month-select {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+  color: #858585;
+}
+.chart-select .month-select span {
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.chart-select .month-select select {
+  width: 160px;
+  height: 34px;
+  line-height: 32px;
+  border: 1px solid #ebebeb;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #858585;
+}
+.chart-select .month-select select option {
+  color: #858585;
+  padding-left: 10px;
+  height: 24px;
+  line-height: 24px;
+}
+.chart-select .chart-btn {
+  display: block;
+  width: 108px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  background-color: #14c2b0;
+  color: #fff;
+  margin-left: 118px;
+  margin-top: 30px;
+  transition: all .4s ease .1s;
+}
+.chart-select .chart-btn:hover {
+  background-color: #008f7d;
+}
+#chart {
+  margin-top: 40px;
+}
+/*===账户管理===*/
+/*===修改密码===*/
+.change-pwd-form {
+  background-color: #fff;
+  padding: 24px 90px 90px 32px;
+  margin-left: 14px;
+}
+.change-pwd-form > div {
+  margin-bottom: 16px;
+  font-size: 0;
+}
+.change-pwd-form > div label {
+  display: inline-block;
+  vertical-align: middle;
+  width: 116px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #8f8f8f;
+}
+.change-pwd-form > div input {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #ebebeb;
+  width: 60%;
+  min-width: 300px;
+  max-width: calc(100% - 300px);
+  height: 40px;
+  line-height: 38px;
+  padding-right: 20px;
+  padding-left: 10px;
+  color: #8f8f8f;
+  font-size: 14px;
+}
+.change-pwd-form > div .get-sms-verification {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+  width: 100px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 2px;
+  transition: all .4s ease .1s;
+}
+.change-pwd-form > div .get-sms-verification:hover {
+  background-color: #333;
+}
+.change-pwd-form .code-status {
+  margin-left: 116px;
+  font-size: 14px;
+  color: #8f8f8f;
+  visibility: hidden;
+}
+.change-pwd-form .change-pwd-submit {
+  margin-top: 16px;
+  margin-left: 116px;
+  width: 160px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #14c2b0;
+  color: #fff;
+  border-radius: 2px;
+  transition: all .4s ease .1s;
+}
+.change-pwd-form .change-pwd-submit:hover {
+  background-color: #008f7d;
+}
+/*===账户维护===*/
+.maintenance-form {
+  background-color: #f8f9fb;
+  padding: 24px 90px 90px 32px;
+  margin-left: 14px;
+}
+.maintenance-form > div {
+  margin-bottom: 16px;
+  font-size: 0;
+}
+.maintenance-form > div label {
+  display: inline-block;
+  vertical-align: middle;
+  width: 116px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #8f8f8f;
+}
+.maintenance-form > div input {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #ebebeb;
+  width: 60%;
+  min-width: 300px;
+  max-width: calc(100% - 300px);
+  height: 40px;
+  line-height: 38px;
+  padding-right: 20px;
+  padding-left: 10px;
+  color: #8f8f8f;
+  font-size: 14px;
+}
+.maintenance-form .img-upload {
+  margin-left: 116px;
+}
+.maintenance-form .img-upload:before {
+  content: "";
+  display: table;
+}
+.maintenance-form .img-upload:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.maintenance-form .img-upload > div {
+  z-index: 2;
+  position: relative;
+  width: 200px;
+  height: 300px;
+  float: left;
+  margin-right: 44px;
+}
+.maintenance-form .img-upload > div input {
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+.maintenance-form .img-upload > div .img {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-size: 14px;
+  color: #8f8f8f;
+}
+.maintenance-form .img-upload > div .img img {
+  display: block;
+  width: 200px;
+  height: 146px;
+  margin-bottom: 10px;
+}
+.maintenance-form .img-upload > div .jFiler-theme-default .jFiler-input {
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+.maintenance-form .img-upload > div .jFiler-items.jFiler-row {
+  margin-top: 200px;
+}
+.maintenance-form .mainterance-submit {
+  margin-top: 16px;
+  margin-left: 116px;
+  width: 160px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #14c2b0;
+  color: #fff;
+  border-radius: 2px;
+  transition: all .4s ease .1s;
+}
+.maintenance-form .mainterance-submit:hover {
+  background-color: #008f7d;
+}

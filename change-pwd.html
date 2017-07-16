@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>修改密码 | 拓贝商户管理后台</title>
+		<meta name="keywords" content="拓贝，VIP折扣" />
+		<meta name="description" content="拓贝，VIP折扣，消费越多折扣越多" />
+		<link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="style/tuobei.css" />
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_8nlb5mvhci8uxr.css" />
+	</head>
+
+	<body>
+		<header id="header" role="banner">
+			<div class="logo"><span>拓贝</span>商户管理后台</div>
+			<div class="user-exit">
+				<div class="user">
+					<img src="images/head-portrait.jpg" alt="用户头像" />
+					<span>用户名</span>
+				</div>
+				<div class="exit" title="登出">
+					<i class="iconfont icon-exit"></i>
+					<span>退出</span>
+				</div>
+			</div>
+		</header>
+		<main id="main" role="main">
+			<nav id="accordion" class="menu" role="navigation">
+				<h3>
+					<i class="iconfont icon-user"></i>
+					<strong>账户管理</strong>
+				</h3>
+				<div>
+					<a href="#" title="修改密码" class="active">修改密码</a>
+					<a href="#" title="账户维护">账户维护</a>
+				</div>
+				<h3>
+					<i class="iconfont icon-report"></i>
+					<strong>商户报表</strong>
+				</h3>
+				<div>
+					<a href="#" title="交易查询">交易查询</a>
+					<a href="#" title="交易分析图">交易分析图</a>
+				</ul>
+			</nav>
+			<aside class="sidebar-r">
+				<nav class="breadcrumbs">
+					<ol>
+						<li>
+							<a href="#" title="账户管理">账户管理</a>
+						</li>
+						<li>密码修改</li>
+					</ol>
+				</nav>
+				<form action="" method="post" id="changePwd" name="changePwd" class="change-pwd-form">
+					<div class="new-pwd">
+						<label for="newPwd">新密码</label>
+						<input type="password" id="newPwd" name="newPwd" autofocus placeholder="6-16位，数字、字母、符号至少两种组合" />											
+					</div>
+					<div class="phone">
+						<label for="phone">手机号码</label>
+						<input type="text" id="phone" name="phone" autofocus placeholder="请输入你的手机号" />						
+						<a href="javascript:void(0)" title="获取验证码" id="getSmsVerification" class="get-sms-verification">获取验证码</a>
+					</div>
+					<div class="sms-verification">
+						<label for="smsVerification">验证码</label>
+						<input type="text" id="smsVerification" name="smsVerification" placeholder="请输入6位短信验证码" />											
+					</div>
+					<!--验证码发送状态，默认情况下文本不显示，获取验证码后才显示状态-->
+					<div class="code-status">验证码已发送至手机</div>
+					<!--下面是ajax提交后，返回的错误提示，没错误时不显示-->
+					<p id="errorTips">这里是错误提示</p>
+					<button type="submit" name="changePwdSubmit" id="changePwdSubmit" class="change-pwd-submit" title="确认更改">确认更改</button>
+				</form>
+			</aside>
+		</main>
+		<footer id="footer" role="contentinfo">
+			
+		</footer>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+		<script src="script/tuobei.js"></script>
+		<script>
+			$(function() {
+				var icons = {
+					header: "ui-icon-plus",
+					activeHeader: "ui-icon-minus"
+				};
+				$("#accordion").accordion({
+					icons: icons,					
+                	collapsible: true, // 面板全部可折叠
+                	active: 0, // 当 collapsible: true 时，该属性可用，默认展开第一个面板
+				});
+				
+				/*自定义方法要写在 validate 方法前面*/
+				// 手机号码 
+				$.validator.addMethod("isPhone", function(value, element) {   
+				    var phone = /^1[3578]{1}\d{9}$/;
+				    return this.optional(element) || (phone.test(value));
+				}, "请正确填写您的手机号码");
+				// 密码
+				$.validator.addMethod("isPwd", function(value, element) {   
+				    var isPwd = /^(?![0-9]+$)(?![a-zA-Z]+$)(?!(^(0-9a-zA-Z))+$)([^(0-9a-zA-Z)]|[a-zA-Z]|[0-9]){6,16}$/;
+				    return this.optional(element) || (isPwd.test(value));
+				}, "请设置正确的密码");
+				// 短信验证码
+				$.validator.addMethod("isSmsVerification", function(value, element) {   
+				    var isSmsVerification = /^\d{6}$/;
+				    return this.optional(element) || (isSmsVerification.test(value));
+				}, "请设置正确的短息验证码");
+				
+				// 表单验证
+				$("#changePwd").validate({					
+					rules: {
+						newPwd: {
+							required: true,
+							isPwd: true
+						},
+						phone: {
+							required: true,
+							isPhone: true
+						},
+						smsVerification: {
+							required: true,
+							isSmsVerification: true
+						}
+					},
+					messages: {
+						newPwd: {
+							required: "新密码不能为空",
+							isPwd: "新密码不能需要6-16位数字、字母、符号至少两种组合"
+						},
+						phone: {
+							required: "手机号码不能为空",
+							isPhone: "请输入正确的手机号码"
+						},
+						smsVerification: {
+							required: "短信验证码不能为空",
+							isSmsVerification: "请输入正确的短信验证码"
+						}
+					},					
+					errorPlacement: function(error, element) {
+						error.insertBefore(element.parents("div"));
+					},
+					submitHandler: function() {
+						$.ajax({
+							url: "这里填写地址",
+							type: "POST",
+							dataType: "JSON",
+							data: {
+								pwd: $("#newPwd").val(), //冒号前面是存入数据库的字段名
+								phone: $("#phone").val(),
+								smsVerification: $("#smsVerification").val()
+							},
+							success: function(data) {
+								if(data.success) {
+									location.href = '这里填写跳转的地址';
+								} else {
+									$("#errorTips").css("visibility","visible").text("出现错误：" + data.errorMsg); //errorMsg为错误信息，将会显示在 #errorTips 中
+								}
+							},
+							error: function(jqXHR){     
+							    alert("发生错误：" + jqXHR.status);  
+							}
+						});
+					}
+				});
+					
+			});
+		</script>
+	</body>
+
+</html>
