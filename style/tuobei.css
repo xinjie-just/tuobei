@@ -1,9 +1,9 @@
+@charset "utf-8";
 /*
  * author: lixinjie
  * date: 20170501
   * Ã¤Â¿Â®Ã¦â€Â¹Ã¦Â Â·Ã¥Â¼ÂÃ¦â€”Â¶Ã¯Â¼Å’Ã¨Â¯Â·Ã¤Â¿Â®Ã¦â€Â¹Ã¥Â¯Â¹Ã¥Âºâ€less
  * */
-@charset "utf-8";
 /* Ã¨Â®Â© IE Ã¦ÂµÂÃ¨Â§Ë†Ã¥â„¢Â¨Ã¥Â¯Â¹Ã¤Â¸ÂÃ¨Â¯â€ Ã¥Ë†Â«Ã§Å¡â€ž html5 Ã¥â€¦Æ’Ã§Â´Â Ã¥Â°â€ Ã¥â€¦Â¶Ã¥Â½â€œÃ¥ÂÅ¡Ã¥Ââ€”Ã¥â€¦Æ’Ã§Â´Â Ã¥Â¤â€žÃ§Ââ€ */
 details,
 main,
@@ -78,7 +78,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   font-size: 16px;
-  color: #333333;
+  color: #333;
   background-color: #eff0f4;
   font-family: "Microsoft Yahei", Arial, sans-serif;
 }
@@ -101,7 +101,7 @@ template,
 }
 /* ===Ã©â€œÂ¾Ã¦Å½Â¥=== */
 a {
-  color: #333333;
+  color: #333;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
   text-decoration: none;
@@ -409,22 +409,58 @@ label.error {
   font-family: "é»‘ä½“";
   margin-left: 36px;
 }
-.home-bigpic {
-  position: relative;
+#homeBody {
+  position: fixed;
   width: 100%;
   max-width: 1920px;
+  height: 100%;
   background: transparent url(../images/homebigpic.jpg) no-repeat center top / cover;
 }
-.home-bigpic img {
-  display: block;
-}
-.home-bigpic .downloadpic {
+#homeMain {
   position: absolute;
-  top: 126px;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%);
-  width: 430px;
-  height: 176px;
+}
+#homeMain .sidebar-left {
+  display: inline-block;
+  vertical-align: middle;
+}
+#homeMain .sidebar-left > img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+}
+#homeMain .sidebar-left > .download {
+  font-size: 0;
+}
+#homeMain .sidebar-left > .download a {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24px;
+  margin-right: 6px;
+}
+#homeMain .sidebar-left > .download img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+}
+#homeMain .sidebar-left > .download span {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  padding-left: 6px;
+  border-left: 1px solid #fff;
+  color: #fff;
+}
+#homeMain .sidebar-right {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 100px;
+  width: 229px;
+  height: 177px;
 }
 #homeFooter {
   position: absolute;
@@ -432,7 +468,7 @@ label.error {
   width: 100%;
   max-width: 1920px;
   font-family: "é»‘ä½“";
-  padding-top: 70px;
+  padding-top: 50px;
   padding-bottom: 32px;
   background-color: #fefefe;
   font-size: 12px;
@@ -1421,3 +1457,4 @@ label.error {
 .maintenance-form .mainterance-submit:hover {
   background-color: #008f7d;
 }
+/*# sourceMappingURL=tuobei.css.map */

@@ -536,21 +536,57 @@ label.error {
         }
     }
 }
-.home-bigpic {
-    position: relative;
+#homeBody {
+    position: fixed;
     width: 100%;
     max-width: 1920px;
+    height: 100%;
     background: transparent url(../images/homebigpic.jpg) no-repeat center top / cover;
-    img {
-        display: block;
+}
+#homeMain {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    .sidebar-left {
+        display: inline-block;
+        vertical-align: middle;
+        > img {
+            display: block;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+        }
+        > .download {
+            font-size: 0;
+            a {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 24px;
+                margin-right: 6px;
+            }
+            img {
+                display: block;
+                width: 24px;
+                height: 24px;
+                font-size: 14px;
+            }
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 16px;
+                padding-left: 6px;
+                border-left: 1px solid #fff;
+                color: #fff;
+            }
+        }
     }
-    .downloadpic {
-        position: absolute;
-        top: 126px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 430px;
-        height: 176px;        
+    .sidebar-right {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 100px;
+        width: 229px;
+        height: 177px;
     }
 }
 #homeFooter {
@@ -559,7 +595,7 @@ label.error {
     width: 100%;
     max-width: 1920px;
     font-family: "é»‘ä½“";
-    padding-top: 70px;
+    padding-top: 50px;
     padding-bottom: 32px;
     background-color: #fefefe;
     font-size: @fs - 4;

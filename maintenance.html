@@ -69,7 +69,7 @@
 						<label for="address">商户地址</label>
 						<input type="text" id="address" name="address" placeholder="请输入商户地址" />
 					</div>
-					<div class="img-upload">
+					<!-- <div class="img-upload">
 						<div class="business-license">
 							<input type="file" name="files[]" id="businessLicense" multiple="multiple">
 							<div class="img" title="上传营业执照">
@@ -91,8 +91,11 @@
 								税务登记证
 							</div>
 						</div>
-					</div>
-					
+					</div> -->
+				 	<div style="background:#f7f8fa;padding: 50px;">
+			         	<!-- filer 3 -->
+			         	<input type = "file" multiple = "multiple" name = "files[]" id = "input2">
+			      	</div>					
 					<!--下面是ajax提交后，返回的错误提示，没错误时不显示-->
 					<p id="errorTips">这里是错误提示</p>
 					<button type="submit" name="mainteranceSubmit" id="mainteranceSubmit" class="mainterance-submit" title="提交">提交</button>
@@ -117,7 +120,7 @@
 				});
 				
 				// 初始化文件上传插件,对三个input[type="file"]都进行初始化
-				var $input = $(".img-upload").find("input");
+				/*var $input = $(".img-upload").find("input");
 				var inputLen = $input.length;
 				for (var i = 0; i < inputLen; i++) {
 					$($input[i]).filer({
@@ -126,7 +129,135 @@
 						extensions: ["jpg", "jpeg", "png"], // 允许的文件扩展名
 						showThumbs: true
 					});
-				}
+				}*/
+				$('#input2').filer({
+		               limit: 5,
+		               maxSize: 3,
+		               extensions:["jpg", "jpeg", "png"],
+		               changeInput: '<div class = "jFiler-input-dragDrop">' +
+		                  				'<div class = "jFiler-input-inner">' +
+											'<a class = "jFiler-input-choose-btn blue">选择文件</a>' +
+										'</div>' +
+		               				'</div>',
+		               showThumbs: true,
+		               appendTo: null,
+		               theme: "dragdropbox",
+		               templates: {
+		                  box: '<ul class = "jFiler-item-list"></ul>',
+		                  item: '<li class = "jFiler-item">' +
+		                     		'<div class = "jFiler-item-container">' +
+		                        		'<div class = "jFiler-item-inner">' +
+											'<div class = "jFiler-item-thumb">' +
+		                              			'<div class = "jFiler-item-status"></div>' +
+												'<div class = "jFiler-item-info">' +
+				                                	'<span class = "jFiler-item-title"><b title = "{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>' +
+				                              	'</div>' +
+												'{{fi-image}}' +
+		                           			'</div>' +
+		                           			'<div class = "jFiler-item-assets jFiler-row">' +
+			                             		'<ul class = "list-inline pull-left">' +
+			                                 		'<li>{{fi-progressBar}}</li>' +
+			                              		'</ul>' +
+												'<ul class = "list-inline pull-right">' +
+			                                 		'<li><a class = "icon-jfi-trash jFiler-item-trash-action"></a></li>' +
+			                              		'</ul>' +
+											'</div>' +
+										'</div>' +
+		                     		'</div>' +
+		                  		'</li>',
+								
+		                  itemAppend: '<li class = "jFiler-item">' +
+		                     		  	'<div class = "jFiler-item-container">' +
+		                        			'<div class = "jFiler-item-inner">' +
+												'<div class = "jFiler-item-thumb">' +
+		                              				'<div class = "jFiler-item-status"></div>' +
+													'<div class = "jFiler-item-info">' +
+		                                 				'<span class = "jFiler-item-title"><b title = "{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>' +
+		                              				'</div>' +
+													'{{fi-image}}' +
+		                           				'</div>' +
+											'<div class = "jFiler-item-assets jFiler-row">' +
+				                              '<ul class = "list-inline pull-left">' +
+				                                 '<span class = "jFiler-item-others">{{fi-icon}} {{fi-size2}}</span>' +
+				                              '</ul>' +
+				                              '<ul class = "list-inline pull-right">' +
+				                                 '<li><a class = "icon-jfi-trash jFiler-item-trash-action"></a></li>' +
+				                              '</ul>' +
+				                           '</div>' +
+				                        '</div>' +
+				                     '</div>' +
+				                  '</li>',
+								
+		                  progressBar: '<div class = "bar"></div>',
+		                  itemAppendToEnd: false,
+		                  removeConfirmation: false,
+								
+		                  _selectors: {
+		                     list: '.jFiler-item-list',
+		                     item: '.jFiler-item',
+		                     progressBar: '.bar',
+		                     remove: '.jFiler-item-trash-action',
+		                  }
+		               },
+							
+		               uploadFile: {
+		                  url: "upload/filer",
+		                  data: {},
+		                  type: 'POST',
+		                  enctype: 'multipart/form-data',
+		                  beforeSend: function(){},
+								
+		                  success: function(data, el){
+		                	  alert(data);
+		                     var parent = el.find(".jFiler-jProgressBar").parent();
+									
+		                     el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
+		                        $("<div class = \"jFiler-item-others text-success\"><i class = \"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");    
+		                     });
+		                  },
+								
+		                  error: function(el){
+		                     var parent = el.find(".jFiler-jProgressBar").parent();
+									
+		                     el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
+		                        $("<div class = \"jFiler-item-others text-error\"><i class = \"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");    
+		                     });
+		                  },
+								
+		                  statusCode: {},
+		                  onProgress: function(){},
+		               },
+							
+		               dragDrop: {
+		                  dragEnter: function(){},
+		                  dragLeave: function(){},
+		                  drop: function(){},
+		               },
+							
+		               addMore: true,
+		               clipBoardPaste: true,
+		               excludeName: null,
+		               beforeShow: function(){return true},
+		               onSelect: function(){},
+		               afterShow: function(){},
+		               onRemove: function(){},
+		               onEmpty: function(){},
+							
+		               captions: {
+		                  button: "Choose Files",
+		                  feedback: "Choose files To Upload",
+		                  feedback2: "files were chosen",
+		                  drop: "Drop file here to Upload",
+		                  removeConfirmation: "Are you sure you want to remove this file?",
+								
+		                  errors: {
+		                     filesLimit: "Only {{fi-limit}} files are allowed to be uploaded.",
+		                     filesType: "Only Images are allowed to be uploaded.",
+		                     filesSize: "{{fi-name}} is too large! Please upload file up to {{fi-maxSize}} MB.",
+		                     filesSizeAll: "Files you've choosed are too large! Please upload files up to {{fi-maxSize}} MB."
+		                  }
+		               }
+		            });
 				
 				/*自定义方法要写在 validate 方法前面*/
 				// 手机号码 

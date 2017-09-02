@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="style/tuobei.css" />
 	</head>
 
-	<body>
+	<body id="homeBody">
 		<header id="homeHeader" role="banner">
 			<figure class="logo">
 				<img src="images/logo.png" alt="拓贝logo" />
@@ -21,9 +21,19 @@
 			</a>
 		</header>
 		<main id="homeMain" role="main">
-			<div id="homeBigpic" class="home-bigpic">
-				<img src="images/download.png" alt="下载提示" class="downloadpic" />
+			<div class="sidebar-left">
+				<img src="images/code.jpg" alt="二维码下载" title="扫码下载APP">
+				<div class="download">
+					<a href="https://itunes.apple.com/cn/app/拓贝/id1269426240?mt=8" title="拓贝APP下载(iPhone版)">
+						<img src="images/iphone.png" alt="iPhone图标">
+					</a>
+					<a href="http://www.tuobeichina.com/androidappdownload" title="拓贝APP下载(andriod版)">
+						<img src="images/andriod.png" alt="andriod图标">
+					</a>
+					<span>扫码下载APP</span>
+				</div>
 			</div>
+			<img src="images/logo2.png" alt="拓贝logo" class="sidebar-right">
 		</main>
 		<footer id="homeFooter" role="contentinfo">
 			<small>&copy;2017 TUOBEI.,Ltd.ALL Rights Reserved.</small>
@@ -34,14 +44,6 @@
 		</footer>
 		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 		<script src="script/tuobei.js"></script>
-		<script>
-			$(function(){
-				var windowHeight = $(window).innerHeight();
-				var headerHeight = $("#homeHeader").outerHeight();
-				var footerHeight = $("#homeFooter").outerHeight();
-				$("#homeBigpic").height(windowHeight - headerHeight - footerHeight);
-			});
-		</script>
 	</body>
 
 </html>
